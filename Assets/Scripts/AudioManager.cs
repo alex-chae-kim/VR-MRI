@@ -19,7 +19,6 @@ public class AudioManager : MonoBehaviour
             s.frequency = s.clip.frequency;
             s.samples = s.clip.samples;
             s.length = s.clip.length;
-            Debug.Log("Estimated length: " + s.samples / s.frequency);
             s.source.loop = s.loop;
         }
     }
