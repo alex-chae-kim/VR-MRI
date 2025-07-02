@@ -33,6 +33,16 @@ public class AudioManager : MonoBehaviour
         s.source.PlayScheduled(startTime);
         return s;
     }
+    public Sound Play(string name)
+    {
+        Sound s = Array.Find(sounds, sounds => sounds.name == name);
+        if (s == null)
+        {
+            return null;
+        }
+        s.source.Play();
+        return s;
+    }
 
     public void Stop(string name)
     {
