@@ -8,7 +8,7 @@ namespace Unity.VRTemplate
     /// <summary>
     /// Controls the steps in the in coaching card.
     /// </summary>
-    public class StepManager : MonoBehaviour
+    public abstract class StepManager : MonoBehaviour
     {
         [Serializable]
         class Step
@@ -31,9 +31,15 @@ namespace Unity.VRTemplate
         public void Next()
         {
             m_StepList[m_CurrentStepIndex].stepObject.SetActive(false);
+            if (m_CurrentStepIndex == m_StepList.Count - 1)
+            {
+                OnLastContinue();
+            }
             m_CurrentStepIndex = (m_CurrentStepIndex + 1) % m_StepList.Count;
             m_StepList[m_CurrentStepIndex].stepObject.SetActive(true);
             m_StepButtonTextField.text = m_StepList[m_CurrentStepIndex].buttonText;
         }
+
+        public abstract void OnLastContinue();
     }
 }
