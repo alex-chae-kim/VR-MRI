@@ -2,34 +2,41 @@ using UnityEngine;
 
 public class Door_Hinge_Manager : MonoBehaviour
 {
-    private float openAngle = 90f;
-    private float closeAngle = 0f;
+    public float openAngle = 90f;  // Target angle
+    public float openSpeed = 30f;  // Degrees per second
+
+    private bool isOpening = false;
 
     public void OpenDoor()
     {
-        while (transform.rotation.y < openAngle)
-        {
-            transform.Rotate(0, 0.5f, 0);
-            if (transform.rotation.y >= openAngle)
-            {
-                transform.rotation = Quaternion.Euler(0, openAngle, 0);
-                break;
-            }
-        }
+        if (!isOpening)
+            StartCoroutine(OpenDoorSmoothly());
     }
 
-    public void CloseDoor()
+    private System.Collections.IEnumerator OpenDoorSmoothly()
     {
-        while (transform.rotation.y > closeAngle)
+        isOpening = true;
+        float currentAngle = transform.localEulerAngles.y;
+        float targetAngle = currentAngle + openAngle;
+        float angleRemaining = openAngle;
+
+        while (angleRemaining > 0.01f)
         {
-            transform.Rotate(0, -0.5f, 0);
-            if (transform.rotation.y <= closeAngle)
-            {
-                transform.rotation = Quaternion.Euler(0, closeAngle, 0);
-                break;
-            }
+            float angleThisFrame = openSpeed * Time.deltaTime;
+            angleThisFrame = Mathf.Min(angleThisFrame, angleRemaining);
+
+            transform.Rotate(0, angleThisFrame, 0);
+
+            angleRemaining -= angleThisFrame;
+
+            yield return null;
         }
+
+        Vector3 finalRotation = transform.localEulerAngles;
+        finalRotation.y = targetAngle;
+        transform.localEulerAngles = finalRotation;
+
+        Debug.Log("Door opened to angle: " + transform.localEulerAngles.y);
+        isOpening = false;
     }
-
-
 }
