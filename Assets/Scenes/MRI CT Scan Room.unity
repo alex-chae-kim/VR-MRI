@@ -1104,7 +1104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6984c48aed9a154294088f4265d8478, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5917,7 +5917,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -24}
-  m_SizeDelta: {x: 23, y: 8}
+  m_SizeDelta: {x: 0, y: 8}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &332725833
 MonoBehaviour:
@@ -15801,7 +15801,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1287932647}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900009708}
+        m_TargetAssemblyTypeName: Unity.VRTemplate.StepManager, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &885707191
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15948,7 +15960,7 @@ GameObject:
   - component: {fileID: 900009702}
   - component: {fileID: 900009701}
   - component: {fileID: 900009700}
-  - component: {fileID: 900009699}
+  - component: {fileID: 900009708}
   m_Layer: 5
   m_Name: Card Root
   m_TagString: Untagged
@@ -15988,24 +16000,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 2.54}
   m_SizeDelta: {x: 784.8, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &900009699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900009697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d11b833cf5a4f947a0be39d1146091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StepButtonTextField: {fileID: 843889747}
-  m_StepList: []
-  turnOffWindow: {fileID: 2130752503}
-  turnOnWindow: {fileID: 0}
-  movement: {fileID: 0}
-  doorHingeManager: {fileID: 0}
 --- !u!114 &900009700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16166,6 +16160,32 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &900009708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900009697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148acbaa4d221ae4baa796592d5a2203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StepButtonTextField: {fileID: 843889747}
+  m_StepList:
+  - stepObject: {fileID: 1832410130}
+    buttonText: Continue
+  - stepObject: {fileID: 476692497}
+    buttonText: Continue
+  - stepObject: {fileID: 2000567281}
+    buttonText: Continue
+  - stepObject: {fileID: 531720574}
+    buttonText: Continue
+  turnOffWindow: {fileID: 2130752503}
+  turnOnWindow: {fileID: 0}
+  movement: {fileID: 0}
+  doorHingeManager: {fileID: 1288938036}
 --- !u!1 &900412870
 GameObject:
   m_ObjectHideFlags: 0
@@ -18043,9 +18063,9 @@ RectTransform:
   - {fileID: 464481093}
   m_Father: {fileID: 332725832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19, y: -4}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009863085
@@ -23406,6 +23426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openAngle: 90
+  closeAngle: 0
   openSpeed: 60
 --- !u!1 &1294060265
 GameObject:
@@ -32524,7 +32545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1832410131
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34019,9 +34040,9 @@ RectTransform:
   - {fileID: 2071022814}
   m_Father: {fileID: 332725832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4, y: -4}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933663778
@@ -37045,11 +37066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6984c48aed9a154294088f4265d8478, type: 3}
       propertyPath: m_Name
-      value: Stage 1
+      value: Stage 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6984c48aed9a154294088f4265d8478, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -16,7 +16,6 @@ public class Stage_2 : StepManager
             turnOffWindow.SetActive(false);
         }
 
-        //close door
-        doorHingeManager.OpenDoor();
+        doorHingeManager.CloseDoor();
     }
 }
