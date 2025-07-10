@@ -9354,9 +9354,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: It's time to move you over to the MRI machine. After pressing continue,
-    you will be able to see your real life surroundings. Please find a comfortable
-    place to lie down on your back. Press both index finger triggers at the same
-    time when you are comfortably lying down and ready.
+    please find a comfortable place to lie down on your back. You can take the headset
+    off  while getting situated. Press both index finger triggers at the same time
+    when you are comfortably lying down and ready.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
