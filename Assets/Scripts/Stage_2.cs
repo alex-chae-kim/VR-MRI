@@ -4,8 +4,7 @@ using UnityEngine;
 public class Stage_2 : StepManager
 {
     public GameObject turnOffWindow;
-    public GameObject turnOnWindow;
-    public GameObject movement;
+    public GameObject stage3Manager;
     public Door_Hinge_Manager doorHingeManager;
 
     public override void OnLastContinue()
@@ -14,6 +13,10 @@ public class Stage_2 : StepManager
         if (turnOffWindow != null)
         {
             turnOffWindow.SetActive(false);
+        }
+        if (stage3Manager != null)
+        {
+            stage3Manager.SetActive(true);
         }
 
         doorHingeManager.CloseDoor();
