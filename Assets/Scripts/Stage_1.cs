@@ -1,7 +1,7 @@
 using Unity.VRTemplate;
 using UnityEngine;
 
-public class Stage_0 : StepManager
+public class Stage_1 : StepManager
 {
     public GameObject turnOffWindow;
     public GameObject turnOnWindow;
@@ -10,7 +10,7 @@ public class Stage_0 : StepManager
 
     public override void OnLastContinue()
     {
-        Debug.Log("Stage 0: OnLastContinue called");
+        Debug.Log("Stage 1: OnLastContinue called");
         if (turnOffWindow != null)
         {
             turnOffWindow.SetActive(false);
