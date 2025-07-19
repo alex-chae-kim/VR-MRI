@@ -19,7 +19,7 @@ public class Stage_3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputGetter.GetLeftTrigger() > 0.5f && InputGetter.GetRightTrigger() > 0.5f )
+        if (InputGetter.GetLeftTrigger() > 0.5f && InputGetter.GetRightTrigger() > 0.5f)
         {
             holdTime -= Time.deltaTime;
             if (holdTime <= 0f && first)

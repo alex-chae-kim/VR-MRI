@@ -21,7 +21,7 @@ public class Stage_4 : StepManager
     // Update is called once per frame
     void Update()
     {
-        if (InputGetter.GetRightTrigger() > 0.5f && headCoilAudioPlayed)
+        if ((InputGetter.GetRightTrigger() > 0.5f) && headCoilAudioPlayed)
         {
             holdTime -= Time.deltaTime;
             if (holdTime <= 0f && first_1)
@@ -35,7 +35,7 @@ public class Stage_4 : StepManager
             holdTime = 2f;
         }
 
-        if (InputGetter.GetRightTrigger() > 0.5f && readyToBeginAudioPlayed)
+        if ((InputGetter.GetRightTrigger() > 0.5f) && readyToBeginAudioPlayed)
         {
             holdTime_2 -= Time.deltaTime;
             if (holdTime_2 <= 0f && first_2)
