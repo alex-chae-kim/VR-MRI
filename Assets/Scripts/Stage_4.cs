@@ -2,8 +2,9 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
+using Unity.VRTemplate;
 
-public class Stage_4 : MonoBehaviour
+public class Stage_4 : StepManager
 {
     public Animator headCoilAnimator;
     public Animator bedAnimator;
@@ -49,7 +50,13 @@ public class Stage_4 : MonoBehaviour
         }
     }
 
-    public IEnumerator putOnHeadCoil()
+    public override void OnLastContinue()
+    {
+        Debug.Log("Stage 4: OnLastContinue called");
+        StartCoroutine("putOnHeadCoil");
+    }
+
+    private IEnumerator putOnHeadCoil()
     {
         stage4.SetActive(false);
         headCoilAnimator.enabled = true;
