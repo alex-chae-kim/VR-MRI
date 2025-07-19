@@ -61,7 +61,7 @@ public class Stage_4 : StepManager
         stage4.SetActive(false);
         headCoilAnimator.enabled = true;
         yield return new WaitForSeconds(7f);
-        audioManager.Play("HeadCoilPrompt");
+        audioManager.Play("Chime1");
         yield return new WaitForSeconds(5f);
         headCoilAudioPlayed = true;
 
@@ -71,7 +71,7 @@ public class Stage_4 : StepManager
     {
         bedAnimator.enabled = true;
         yield return new WaitForSeconds(10f);
-        audioManager.Play("ReadyToBegin?");
+        audioManager.Play("Chime2");
         yield return new WaitForSeconds(5f);
         readyToBeginAudioPlayed = true;
 
