@@ -8805,6 +8805,51 @@ MonoBehaviour:
     samples: 0
     loop: 0
     source: {fileID: 0}
+  - name: Calibration
+    clip: {fileID: 8300000, guid: 22391891659a17740a138f4ad2ec4446, type: 3}
+    volume: 0.5
+    pitch: 1
+    length: 0
+    frequency: 0
+    samples: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Three Plane Localizer
+    clip: {fileID: 8300000, guid: 048258a6a9afddd4a9746400413252e7, type: 3}
+    volume: 0.5
+    pitch: 1
+    length: 0
+    frequency: 0
+    samples: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: DWI
+    clip: {fileID: 8300000, guid: 273b8653cc4d83044a6bb5f8b316b2d1, type: 3}
+    volume: 0.5
+    pitch: 1
+    length: 0
+    frequency: 0
+    samples: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: T1
+    clip: {fileID: 8300000, guid: dc1a7ed2598fcc04d9f3efcfa03db2b8, type: 3}
+    volume: 0.5
+    pitch: 1
+    length: 0
+    frequency: 0
+    samples: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: T1
+    clip: {fileID: 8300000, guid: dc1a7ed2598fcc04d9f3efcfa03db2b8, type: 3}
+    volume: 0.5
+    pitch: 1
+    length: 0
+    frequency: 0
+    samples: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &308034463
 Transform:
   m_ObjectHideFlags: 0
