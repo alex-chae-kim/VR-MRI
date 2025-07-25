@@ -18,6 +18,19 @@ public class Scan_Manager : MonoBehaviour
     {
     }
 
+    public void addScan(Scan scan)
+    {
+        if (scan != null && !scans.Contains(scan))
+        {
+            scans.Add(scan);
+            Debug.Log($"Scan '{scan.name}' added to the list.");
+        }
+        else
+        {
+            Debug.LogWarning("Scan is null or already exists in the list.");
+        }
+    }
+
     IEnumerator PlayAllScans()
     {
         isScanning = true;
