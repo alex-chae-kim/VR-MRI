@@ -8,6 +8,7 @@ using Unity.VRTemplate;
 public class Stage_0 : StepManager
 {
     public Scan_Manager scanManager;
+    public Dropdown_Manager dropdownManager;
     public Transform target;
     public XROrigin XROrigin;
     public InputGetter InputGetter;
@@ -18,7 +19,6 @@ public class Stage_0 : StepManager
     public Animator newAnimator;
     private float holdTime = 2f;
     private bool first = true;
-    public List<string> scanOptions;
 
     // Update is called once per frame
     void Update()
@@ -29,8 +29,7 @@ public class Stage_0 : StepManager
     private IEnumerator transitionToStage1()
     {
         oldAnimator.SetTrigger("FadeOut");
-
-        foreach (string option in scanOptions)
+        foreach (string option in dropdownManager.options)
         {
             Scan scan = new Scan(option, option, default, false);
             scanManager.addScan(scan);

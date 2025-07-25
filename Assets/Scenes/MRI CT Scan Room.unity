@@ -16885,6 +16885,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541780007}
   m_CullTransparentMesh: 1
+--- !u!1 &542168955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542168956}
+  m_Layer: 0
+  m_Name: Target  (stage 1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542168956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542168955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.943, y: 0.878, z: 2.017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &542602541
 GameObject:
   m_ObjectHideFlags: 0
@@ -23493,6 +23524,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782029058}
   m_CullTransparentMesh: 1
+--- !u!1 &785848561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 785848563}
+  - component: {fileID: 785848562}
+  m_Layer: 0
+  m_Name: Scan Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &785848562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785848561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7634326aa2a984e4c8c9666048d4caf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scans: []
+  audioManager: {fileID: 308034462}
+  scanStartAnnouncementClip: Chime1
+  currentScan:
+    name: 
+    clipName: 
+    announcement: 
+    allowUserMusic: 0
+  music: 
+--- !u!4 &785848563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785848561}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5157473, y: 1.5190649, z: -5.3221073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787639397
 GameObject:
   m_ObjectHideFlags: 0
@@ -55468,6 +55552,7 @@ GameObject:
   - component: {fileID: 1850268505}
   - component: {fileID: 1850268504}
   - component: {fileID: 1850268503}
+  - component: {fileID: 1850268512}
   m_Layer: 5
   m_Name: Card Root
   m_TagString: Untagged
@@ -55681,6 +55766,30 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1850268512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850268501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e5b5006d65e504ca19624f1bb01e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StepButtonTextField: {fileID: 0}
+  m_StepList: []
+  scanManager: {fileID: 785848562}
+  dropdownManager: {fileID: 4421130}
+  target: {fileID: 542168956}
+  XROrigin: {fileID: 1520139884}
+  InputGetter: {fileID: 1985182499}
+  newXROrigin: {fileID: 476538015}
+  oldXROrigin: {fileID: 459526753}
+  stage1: {fileID: 53016341}
+  oldAnimator: {fileID: 1554314038}
+  newAnimator: {fileID: 1228555320}
 --- !u!1 &1851992261
 GameObject:
   m_ObjectHideFlags: 0
@@ -65368,9 +65477,11 @@ SceneRoots:
   - {fileID: 506328409}
   - {fileID: 724674076}
   - {fileID: 1982046300}
+  - {fileID: 785848563}
   - {fileID: 308034463}
   - {fileID: 1089902998}
   - {fileID: 842675671}
   - {fileID: 1003875659}
   - {fileID: 1105050364}
   - {fileID: 707681278}
+  - {fileID: 542168956}

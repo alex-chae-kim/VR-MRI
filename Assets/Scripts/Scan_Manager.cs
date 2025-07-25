@@ -6,7 +6,7 @@ public class Scan_Manager : MonoBehaviour
 {
     public List<Scan> scans;
     public AudioManager audioManager;
-    public AudioClip scanStartAnnouncementClip;
+    public string scanStartAnnouncementClip;
     public Scan currentScan;
     public string music;
 
@@ -72,10 +72,8 @@ public class Scan_Manager : MonoBehaviour
 
     IEnumerator AnnounceScan(Scan scan)
     {
-        string announcementText = $"The next scan is {scan.name}. It will take {Mathf.RoundToInt(scan.durationSeconds)} seconds.";
-        Debug.Log(announcementText);
-        Sound announcementSound = audioManager.Play(scan.announcement);
-        yield return new WaitForSeconds(announcementSound.length);
+        Sound announcementSound = audioManager.Play(scanStartAnnouncementClip);
+        yield return new WaitForSeconds(announcementSound.length + 1f);
     }
 
     public void StartScanSequence()
