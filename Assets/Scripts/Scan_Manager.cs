@@ -50,10 +50,10 @@ public class Scan_Manager : MonoBehaviour
             }
 
             // Play MRI scan sound
-            audioManager.Play(currentScan.clipName);
+            Sound scanSound = audioManager.Play(currentScan.clipName);
 
             // Wait for duration
-            yield return new WaitForSeconds(currentScan.durationSeconds);
+            yield return new WaitForSeconds(scanSound.length + 1f);
 
             // Stop user music and scan sound
             if (currentScan.allowUserMusic && playingMusic)
