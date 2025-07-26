@@ -12,11 +12,8 @@ public class Stage_0 : StepManager
     public Transform target;
     public XROrigin XROrigin;
     public InputGetter InputGetter;
-    public GameObject newXROrigin;
-    public GameObject oldXROrigin;
     public GameObject stage1;
     public Animator oldAnimator;
-    public Animator newAnimator;
 
     // Update is called once per frame
     void Update()

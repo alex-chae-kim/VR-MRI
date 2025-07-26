@@ -9,6 +9,7 @@ public class Stage_4 : StepManager
     public Animator headCoilAnimator;
     public Animator bedAnimator;
     public GameObject stage4;
+    public Stage_5 stage5;
     public InputGetter InputGetter;
     public AudioManager audioManager;
     private float holdTime = 2f;
@@ -74,8 +75,6 @@ public class Stage_4 : StepManager
         audioManager.Play("Chime2");
         yield return new WaitForSeconds(5f);
         readyToBeginAudioPlayed = true;
-
+        stage5.startScanManager();
     }
-
-    // start next stage
 }
