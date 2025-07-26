@@ -6,7 +6,7 @@ public class Scan_Manager : MonoBehaviour
 {
     public List<Scan> scans;
     public AudioManager audioManager;
-    public AudioClip scanStartAnnouncementClip;
+    public string scanStartAnnouncementClip;
     public Scan currentScan;
     public string music;
 
@@ -16,6 +16,19 @@ public class Scan_Manager : MonoBehaviour
 
     void Start()
     {
+    }
+
+    public void addScan(Scan scan)
+    {
+        if (scan != null && !scans.Contains(scan))
+        {
+            scans.Add(scan);
+            Debug.Log($"Scan '{scan.name}' added to the list.");
+        }
+        else
+        {
+            Debug.LogWarning("Scan is null or already exists in the list.");
+        }
     }
 
     IEnumerator PlayAllScans()
@@ -37,10 +50,10 @@ public class Scan_Manager : MonoBehaviour
             }
 
             // Play MRI scan sound
-            audioManager.Play(currentScan.clipName);
+            Sound scanSound = audioManager.Play(currentScan.clipName);
 
             // Wait for duration
-            yield return new WaitForSeconds(currentScan.durationSeconds);
+            yield return new WaitForSeconds(scanSound.length + 1f);
 
             // Stop user music and scan sound
             if (currentScan.allowUserMusic && playingMusic)
@@ -59,10 +72,8 @@ public class Scan_Manager : MonoBehaviour
 
     IEnumerator AnnounceScan(Scan scan)
     {
-        string announcementText = $"The next scan is {scan.name}. It will take {Mathf.RoundToInt(scan.durationSeconds)} seconds.";
-        Debug.Log(announcementText);
-        Sound announcementSound = audioManager.Play(scan.announcement);
-        yield return new WaitForSeconds(announcementSound.length);
+        Sound announcementSound = audioManager.Play(scanStartAnnouncementClip);
+        yield return new WaitForSeconds(announcementSound.length + 1f);
     }
 
     public void StartScanSequence()
