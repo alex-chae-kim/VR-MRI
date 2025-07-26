@@ -9,6 +9,7 @@ public class Scan_Manager : MonoBehaviour
     public string scanStartAnnouncementClip;
     public Scan currentScan;
     public string music;
+    public bool scansCompleted = false;
 
     private int currentScanIndex = 0;
     private bool isScanning = false;
@@ -68,6 +69,7 @@ public class Scan_Manager : MonoBehaviour
         }
 
         isScanning = false;
+        scansCompleted = true;
     }
 
     IEnumerator AnnounceScan(Scan scan)
