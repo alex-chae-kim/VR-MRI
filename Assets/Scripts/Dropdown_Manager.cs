@@ -7,10 +7,21 @@ using System.Collections.Generic;
 public class Dropdown_Manager : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown dropdown;
+    public GameObject continueButton;
     public TMP_Text list;
     public List<string> options;
 
-
+    private void Update()
+    {
+        if (options.Count == 0)
+        {
+            continueButton.SetActive(false);
+        }
+        else
+        {
+            continueButton.SetActive(true);
+        }
+    }
     public void SelectMenuOption()
     {
         if (dropdown.value == 0)

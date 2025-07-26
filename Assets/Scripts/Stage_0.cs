@@ -17,8 +17,6 @@ public class Stage_0 : StepManager
     public GameObject stage1;
     public Animator oldAnimator;
     public Animator newAnimator;
-    private float holdTime = 2f;
-    private bool first = true;
 
     // Update is called once per frame
     void Update()
