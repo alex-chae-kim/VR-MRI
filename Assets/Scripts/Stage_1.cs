@@ -6,7 +6,6 @@ public class Stage_1 : StepManager
     public GameObject turnOffWindow;
     public GameObject turnOnWindow;
     public GameObject movement;
-    public Door_Hinge_Manager doorHingeManager;
 
     public override void OnLastContinue()
     {
@@ -21,7 +20,6 @@ public class Stage_1 : StepManager
             turnOnWindow.SetActive(true);
         }
         
-        doorHingeManager.OpenDoor();
         movement.SetActive(true);
     }   
 }

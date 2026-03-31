@@ -15,13 +15,13 @@ public class Stage_5 : MonoBehaviour
     public GameObject oldXROrigin;
     public Animator oldAnimator;
 
-    private bool first = true;
+    private bool flag = true;
     // Update is called once per frame
     void Update()
     {
-        if (scanManager.scansCompleted && first)
+        if (scanManager.scansCompleted && flag)
         {
-            first = false;
+            flag = false;
             StartCoroutine(exitMRI());
         }
     }
@@ -33,12 +33,14 @@ public class Stage_5 : MonoBehaviour
 
     private IEnumerator exitMRI()
     {
-        audioManager.Play("Scans Completed");
-        yield return new WaitForSeconds(5f); // Adjust time as needed
+        audioManager.Play("Audio 15");
+        yield return new WaitForSeconds(8f);
         bedAnimator.SetTrigger("mriExit");
-        yield return new WaitForSeconds(8f); // Adjust time as needed
+        yield return new WaitForSeconds(6f); 
+        audioManager.Play("Audio 16");
+        yield return new WaitForSeconds(2f);
         headCoilAnimator.SetTrigger("coilToTable");
-        yield return new WaitForSeconds(8f); // Adjust time as needed
+        yield return new WaitForSeconds(10f);
         oldAnimator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(3f);
         XROrigin.MoveCameraToWorldLocation(target.position);
