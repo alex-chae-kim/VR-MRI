@@ -40,6 +40,14 @@ public class Scan_Manager : MonoBehaviour
         {
             currentScan = scans[currentScanIndex];
 
+            // Trigger check in after first scan
+            if (currentScanIndex == 1)
+            {
+                Sound checkIn = audioManager.Play("Audio 14");
+                yield return new WaitForSeconds(checkIn.length + 2f);
+            }
+            
+
             // Announce scan start and duration
             yield return StartCoroutine(AnnounceScan(currentScan));
 
@@ -63,7 +71,7 @@ public class Scan_Manager : MonoBehaviour
                 playingMusic = false;
             }
 
-            audioManager.Stop(currentScan.clipName); // Optional if looped
+            audioManager.Stop(currentScan.clipName); // should be redundant since the sound should have finished, but just in case
 
             currentScanIndex++;
         }

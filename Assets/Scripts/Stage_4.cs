@@ -12,44 +12,7 @@ public class Stage_4 : StepManager
     public Stage_5 stage5;
     public InputGetter InputGetter;
     public AudioManager audioManager;
-    private float holdTime = 2f;
-    private float holdTime_2 = 2f;
-    private bool headCoilAudioPlayed = false;
-    private bool readyToBeginAudioPlayed = false;
-    private bool first_1 = true;
-    private bool first_2 = true;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if ((InputGetter.GetRightTrigger() > 0.5f) && headCoilAudioPlayed)
-        {
-            holdTime -= Time.deltaTime;
-            if (holdTime <= 0f && first_1)
-            {
-                first_1 = false;
-                StartCoroutine("slideIntoMRI");
-            }
-        }
-        else
-        {
-            holdTime = 2f;
-        }
-
-        if ((InputGetter.GetRightTrigger() > 0.5f) && readyToBeginAudioPlayed)
-        {
-            holdTime_2 -= Time.deltaTime;
-            if (holdTime_2 <= 0f && first_2)
-            {
-                first_2 = false;
-                Debug.Log("Begin MRI sequence");
-            }
-        }
-        else
-        {
-            holdTime_2 = 2f;
-        }
-    }
 
     public override void OnLastContinue()
     {
@@ -62,10 +25,9 @@ public class Stage_4 : StepManager
         stage4.SetActive(false);
         headCoilAnimator.enabled = true;
         yield return new WaitForSeconds(7f);
-        audioManager.Play("Chime1");
-        yield return new WaitForSeconds(5f);
-        headCoilAudioPlayed = true;
-
+        audioManager.Play("Audio 12");
+        yield return new WaitForSeconds(24f);
+        StartCoroutine("slideIntoMRI");
     }
 
     private IEnumerator slideIntoMRI()
@@ -73,8 +35,9 @@ public class Stage_4 : StepManager
         bedAnimator.enabled = true;
         yield return new WaitForSeconds(10f);
         audioManager.Play("Chime2");
-        yield return new WaitForSeconds(5f);
-        readyToBeginAudioPlayed = true;
+        yield return new WaitForSeconds(2f);
+        audioManager.Play("Audio 13");
+        yield return new WaitForSeconds(18f);
         stage5.startScanManager();
     }
 }
