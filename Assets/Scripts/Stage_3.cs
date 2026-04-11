@@ -8,8 +8,6 @@ public class Stage_3 : MonoBehaviour
     public Transform target;
     public XROrigin XROrigin;
     public InputGetter InputGetter;
-    public GameObject newXROrigin;
-    public GameObject oldXROrigin;
     public GameObject stage4;
     public Animator oldAnimator;
     public Animator newAnimator;
@@ -39,11 +37,9 @@ public class Stage_3 : MonoBehaviour
     {
         oldAnimator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(3f);
+        XROrigin.MatchOriginUpCameraForward(-target.forward, target.up);
         XROrigin.MoveCameraToWorldLocation(target.position);
-        XROrigin.MatchOriginUpCameraForward(target.up, target.forward);
         oldAnimator.SetTrigger("FadeIn");
-        //oldXROrigin.SetActive(false);
-        //newXROrigin.SetActive(true);
         stage4.SetActive(true);
         this.gameObject.SetActive(false);
     }

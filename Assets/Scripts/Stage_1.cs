@@ -19,7 +19,5 @@ public class Stage_1 : StepManager
         {
             turnOnWindow.SetActive(true);
         }
-        
-        movement.SetActive(true);
     }   
 }

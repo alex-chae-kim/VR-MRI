@@ -30,8 +30,8 @@ public class Stage_0 : StepManager
             scanManager.addScan(scan);
         }
         yield return new WaitForSeconds(3f);
-        XROrigin.MoveCameraToWorldLocation(target.position);
         XROrigin.MatchOriginUpCameraForward(target.up, target.forward);
+        XROrigin.MoveCameraToWorldLocation(target.position);
         oldAnimator.SetTrigger("FadeIn");
         stage1.SetActive(true);
         this.gameObject.SetActive(false);

@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
 using Unity.VRTemplate;
+using UnityEditorInternal;
 
 public class Stage_4 : StepManager
 {
@@ -12,6 +13,13 @@ public class Stage_4 : StepManager
     public Stage_5 stage5;
     public InputGetter InputGetter;
     public AudioManager audioManager;
+    public Pause_Manager pauseManager;
+
+    void Start()
+    {
+        headCoilAnimator.enabled = false;
+        bedAnimator.enabled = false;
+    }
 
 
     public override void OnLastContinue()
@@ -23,6 +31,7 @@ public class Stage_4 : StepManager
     private IEnumerator putOnHeadCoil()
     {
         stage4.SetActive(false);
+        //pauseManager.active = true;
         headCoilAnimator.enabled = true;
         yield return new WaitForSeconds(7f);
         audioManager.Play("Audio 12");

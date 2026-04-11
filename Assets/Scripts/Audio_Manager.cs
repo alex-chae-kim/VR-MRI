@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-
+    public Pause_Manager pauseManager;
     public Sound[] sounds;
     // Start is called before the first frame update
     void Awake()
@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
         {
             return null;
         }
+        pauseManager.currentlyPlaying = name;
         s.source.PlayScheduled(startTime);
         return s;
     }
@@ -40,6 +41,7 @@ public class AudioManager : MonoBehaviour
         {
             return null;
         }
+        pauseManager.currentlyPlaying = name;
         s.source.Play();
         return s;
     }
@@ -52,5 +54,15 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Pause();
+    }
+
+    public void Unpause(string name)
+    {
+        Sound s = Array.Find(sounds, sounds => sounds.name == name);
+        if (s == null)
+        {
+            return;
+        }
+        s.source.UnPause();
     }
 }
