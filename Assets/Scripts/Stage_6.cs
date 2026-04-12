@@ -8,6 +8,7 @@ public class Stage_6 : StepManager
 
     public override void OnLastContinue()
     {
+        disableNext();
         StartCoroutine(endSimulation());
     }
     public IEnumerator endSimulation()

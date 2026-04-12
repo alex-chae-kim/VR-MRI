@@ -43,8 +43,8 @@ public class Stage_5 : MonoBehaviour
         yield return new WaitForSeconds(10f);
         oldAnimator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(3f);
-        XROrigin.MoveCameraToWorldLocation(target.position);
         XROrigin.MatchOriginUpCameraForward(target.up, target.forward);
+        XROrigin.MoveCameraToWorldLocation(target.position);
         oldAnimator.SetTrigger("FadeIn");
         //oldXROrigin.SetActive(false);
         //newXROrigin.SetActive(true);

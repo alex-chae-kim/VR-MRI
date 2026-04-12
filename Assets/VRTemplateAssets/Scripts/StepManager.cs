@@ -27,9 +27,19 @@ namespace Unity.VRTemplate
         List<Step> m_StepList = new List<Step>();
 
         int m_CurrentStepIndex = 0;
+        bool nextable = true;
+
+        public void disableNext()
+        {
+            nextable = false;
+        }
 
         public void Next()
         {
+            if (!nextable)
+            {
+                return;
+            }
             m_StepList[m_CurrentStepIndex].stepObject.SetActive(false);
             if (m_CurrentStepIndex == m_StepList.Count - 1)
             {

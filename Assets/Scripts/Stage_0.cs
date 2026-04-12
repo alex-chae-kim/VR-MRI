@@ -39,6 +39,7 @@ public class Stage_0 : StepManager
 
     public override void OnLastContinue()
     {
+        disableNext();
         StartCoroutine(transitionToStage1());
     }
 }

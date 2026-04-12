@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class Pause_Manager : MonoBehaviour
 {
-    //public Transform target;
-    //public XROrigin XROrigin;
     public InputGetter InputGetter;
     public AudioManager audioManager;
     public GameObject pauseMenu;
     public GameObject headcoil;
     public GameObject machine;
-    private float holdTime = 3f;
-    private float unpauseTime = 3f;
+    private float holdTime = 2f;
+    private float unpauseTime = 2f;
     private bool paused = false;
     public bool active = false;
     public string currentlyPlaying;
@@ -19,6 +17,16 @@ public class Pause_Manager : MonoBehaviour
     void Start()
     {
         currentlyPlaying = "null";
+    }
+
+    public void setActive()
+    {
+        active = true;
+    }
+
+    public void setCurrentlyPlaying(string clipName)
+    {
+        currentlyPlaying = clipName;
     }
 
     void Update()
@@ -39,7 +47,7 @@ public class Pause_Manager : MonoBehaviour
             }
             else
             {
-                holdTime = 3f;
+                holdTime = 2f;
             }
 
             if (active & paused && InputGetter.GetLeftTrigger() > 0.5f)
@@ -58,7 +66,7 @@ public class Pause_Manager : MonoBehaviour
             }
             else
             {
-                unpauseTime = 3f;
+                unpauseTime = 2f;
             }
         }
 }

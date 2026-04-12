@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
         {
             return null;
         }
-        pauseManager.currentlyPlaying = name;
+        pauseManager.setCurrentlyPlaying(name);
         s.source.PlayScheduled(startTime);
         return s;
     }
@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
         {
             return null;
         }
-        pauseManager.currentlyPlaying = name;
+        pauseManager.setCurrentlyPlaying(name);
         s.source.Play();
         return s;
     }

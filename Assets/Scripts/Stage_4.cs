@@ -21,7 +21,6 @@ public class Stage_4 : StepManager
         bedAnimator.enabled = false;
     }
 
-
     public override void OnLastContinue()
     {
         Debug.Log("Stage 4: OnLastContinue called");
@@ -31,7 +30,7 @@ public class Stage_4 : StepManager
     private IEnumerator putOnHeadCoil()
     {
         stage4.SetActive(false);
-        //pauseManager.active = true;
+        pauseManager.setActive();
         headCoilAnimator.enabled = true;
         yield return new WaitForSeconds(7f);
         audioManager.Play("Audio 12");
