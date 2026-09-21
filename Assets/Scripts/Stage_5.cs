@@ -8,6 +8,7 @@ public class Stage_5 : MonoBehaviour
     public Animator headCoilAnimator;
     public Animator bedAnimator;
     public GameObject stage6;
+    public GameObject confetti;
     public AudioManager audioManager;
 
     public Transform target;
@@ -49,6 +50,7 @@ public class Stage_5 : MonoBehaviour
         //oldXROrigin.SetActive(false);
         //newXROrigin.SetActive(true);
         stage6.SetActive(true);
+        confetti.SetActive(true);
         this.gameObject.SetActive(false);
     }
 }
